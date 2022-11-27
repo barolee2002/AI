@@ -1,9 +1,13 @@
 package Lab_2;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private float totalcost = 0;
     private int qtyOrdered = 0;
+    ArrayList<DigitalVideoDisc> itemsOderList = new ArrayList<DigitalVideoDisc>(MAX_NUMBERS_ORDERED);
 
     private DigitalVideoDisc itemlist[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 
@@ -19,7 +23,22 @@ public class Cart {
             System.out.println("Gio hang da day");                 
         }
     }
+    
+    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+    	for(int i=0;i < dvdList.length; i++) {
+    		if(qtyOrdered < MAX_NUMBERS_ORDERED) {
+    			itemsOderList.add(dvdList[i]);
+    			System.out.println("San pham " + dvdList[i].getTitle() + " da duoc them vao");
+    		}
+    		
+    		else System.out.println("Gio hang da day");
+    	}
+    }
 
+    
+    public void addDigitalVideoDisc() {
+    	
+    }
     public float totalCost() {
         for (int i = 0; i < qtyOrdered; i++) {
             totalcost = totalcost + itemlist[i].getCost();
